@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DRSubmitButton"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A custom submit button with normal, loading, success and warning state."
   s.homepage     = "https://github.com/citysite102/DRSubmitButton.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
