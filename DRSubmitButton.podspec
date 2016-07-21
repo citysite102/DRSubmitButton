@@ -11,9 +11,7 @@ Pod::Spec.new do |s|
   s.name         = "DRSubmitButton"
   s.version      = "0.0.1"
   s.summary      = "A custom submit button with normal, loading, success and warning state."
-  s.description  = <<-DESC
-                   DESC
-  s.homepage     = "http://EXAMPLE/DRSubmitButton"
+  s.homepage     = "git@github.com:citysite102/DRSubmitButton.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -24,8 +22,8 @@ Pod::Spec.new do |s|
   #
 
   s.license      = "MIT"
-  s.author             = { "Samuel" => "citysite1025@gmail.com" }
-  s.platform     = :ios, "8.0"
+  s.author       = { "Samuel" => "citysite1025@gmail.com" }
+  s.ios.deployment_target = '9.0'
   s.source       = { :git => "git@github.com:citysite102/DRSubmitButton.git", :tag => "#{s.version}" }
   s.source_files  = 'Source'
   s.requires_arc = true
