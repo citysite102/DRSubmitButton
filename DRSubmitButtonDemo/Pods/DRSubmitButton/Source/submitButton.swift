@@ -54,45 +54,45 @@ public class submitButton: UIView {
     public var buttonState: SubmitButtonState = .normal {
         willSet {
             switch newValue {
-                case .normal:
-                    self.performSubmitAppearAnimation();
-                    self.performBackgroundColorAnimation(normalBackgrounColor, completion: nil);
-                    self.loadingShapeLayer.removeAllAnimations();
-                case .loading:
-                    self.performBackgroundColorAnimation(loadingBackgrounColor, completion: nil);
-                    self.performLoadingAnimation();
-                case .success:
-                    self.performAppearAnimation(self.successImageView, completion: nil);
-                    self.performBackgroundColorAnimation(successBackgroundColor, completion: nil);
-                    self.loadingShapeLayer.removeAllAnimations();
-                case .warning:
-                    self.performAppearAnimation(self.warningImageView, completion: { (result: Bool) in
-                        if result {
-                            self.performShakeAnimation(self.backgroundView, completion: nil);
-                            self.performShakeAnimation(self.warningImageView, completion: nil);
-                        }
-                    });
-                    self.performBackgroundColorAnimation(warningBackgroundColor, completion: nil);
-                    self.loadingShapeLayer.removeAllAnimations();
+            case .normal:
+                self.performSubmitAppearAnimation();
+                self.performBackgroundColorAnimation(normalBackgrounColor, completion: nil);
+                self.loadingShapeLayer.removeAllAnimations();
+            case .loading:
+                self.performBackgroundColorAnimation(loadingBackgrounColor, completion: nil);
+                self.performLoadingAnimation();
+            case .success:
+                self.performAppearAnimation(self.successImageView, completion: nil);
+                self.performBackgroundColorAnimation(successBackgroundColor, completion: nil);
+                self.loadingShapeLayer.removeAllAnimations();
+            case .warning:
+                self.performAppearAnimation(self.warningImageView, completion: { (result: Bool) in
+                    if result {
+                        self.performShakeAnimation(self.backgroundView, completion: nil);
+                        self.performShakeAnimation(self.warningImageView, completion: nil);
+                    }
+                });
+                self.performBackgroundColorAnimation(warningBackgroundColor, completion: nil);
+                self.loadingShapeLayer.removeAllAnimations();
             }
         }
         didSet {
             switch oldValue {
-                case .normal:
-                    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-                    dispatch_after(delayTime, dispatch_get_main_queue()) {
-                        self.performSubmitHiddenAnimation();
-                    }
-                case .loading:
-                    self.loadingShapeLayer.hidden = true;
-                case .success:
-                    self.performHiddenAnimation(self.successImageView, completion: nil);
-                case .warning:
-                    self.performHiddenAnimation(self.warningImageView, completion: nil);
+            case .normal:
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    self.performSubmitHiddenAnimation();
                 }
+            case .loading:
+                self.loadingShapeLayer.hidden = true;
+            case .success:
+                self.performHiddenAnimation(self.successImageView, completion: nil);
+            case .warning:
+                self.performHiddenAnimation(self.warningImageView, completion: nil);
+            }
         }
     }
-
+    
     // Loading circle radius
     private var kLoadingRadius: CGFloat         = 12
     
@@ -112,7 +112,7 @@ public class submitButton: UIView {
     private var target: AnyObject?;
     private var selector: Selector?;
     
-
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -185,7 +185,7 @@ public class submitButton: UIView {
         super.layoutSubviews();
         self.loadingShapeLayer.path =
             UIBezierPath.init(ovalInRect: CGRectMake(CGRectGetWidth(self.frame)/2 - kLoadingRadius,
-                                            CGRectGetHeight(self.frame)/2 - kLoadingRadius, 2 * kLoadingRadius, 2 * kLoadingRadius)).CGPath;
+                CGRectGetHeight(self.frame)/2 - kLoadingRadius, 2 * kLoadingRadius, 2 * kLoadingRadius)).CGPath;
         self.loadingShapeLayer.frame = self.bounds;
     }
     
@@ -270,7 +270,7 @@ public class submitButton: UIView {
     
     private func performHiddenAnimation(hiddenImage: UIImageView, completion: ((Bool) -> Void)?) {
         UIView.animateWithDuration(0.3,
-                                   animations: { 
+                                   animations: {
                                     hiddenImage.alpha = 0.0;
                                     hiddenImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_4/2));
         }) { (result: Bool) in
@@ -320,7 +320,7 @@ public class submitButton: UIView {
     
     private func performBackgroundColorAnimation(backgroundColor: UIColor, completion: ((Bool) -> Void)?) {
         UIView.animateWithDuration(0.4,
-                                   animations: { 
+                                   animations: {
                                     self.backgroundView.backgroundColor = backgroundColor;
         });
     }
