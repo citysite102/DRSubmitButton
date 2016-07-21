@@ -1,0 +1,7 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DRSubmitButtonDemo' do
+  use_frameworks!
+  pod ‘DRSubmitButton’, :git => 'git@github.com:citysite102/DRSubmitButton.git'
+end

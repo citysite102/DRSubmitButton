@@ -26,11 +26,8 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Samuel" => "citysite1025@gmail.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "http://EXAMPLE/DRSubmitButton.git", :tag => "#{s.version}" }
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
-
-  # s.public_header_files = "Classes/**/*.h"
+  s.source       = { :git => "git@github.com:citysite102/DRSubmitButton.git", :tag => "#{s.version}" }
+  s.source_files  = 'Source'
   s.requires_arc = true
 
 end
