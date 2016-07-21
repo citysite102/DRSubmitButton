@@ -15,12 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let submitButtonDemo =
             submitButton.init(frame: CGRectMake(80, 150, 160, 54));
-        
+        submitButtonDemo.addTarget(self, action: #selector(ViewController.demoFunction));
+        self.view.addSubview(submitButtonDemo);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func demoFunction() {
+        print("Demo");
     }
 
 
