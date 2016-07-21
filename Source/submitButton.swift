@@ -90,7 +90,7 @@ public class submitButton: UIView {
     private var selector: Selector?;
     
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         // Self Setting

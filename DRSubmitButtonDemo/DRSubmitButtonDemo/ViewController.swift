@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import DRSubmitButton
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let submitButton = submitButton.init(frame: CGRectMake(80, 150, 160, 54));
+        let submitButtonDemo =
+            submitButton.init(frame: CGRectMake(80, 150, 160, 54));
         
     }
 

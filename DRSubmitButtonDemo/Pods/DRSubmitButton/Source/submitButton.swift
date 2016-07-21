@@ -1,6 +1,5 @@
 //
 //  submitButton.swift
-//  blastButton_s
 //
 //  Created by YU CHONKAO on 2016/7/20.
 //  Copyright © 2016年 YU CHONKAO. All rights reserved.
@@ -150,7 +149,7 @@ public class submitButton: UIView {
         self.warningImageView.transform = CGAffineTransformRotate(self.warningImageView.transform, CGFloat(-M_PI_4/2));
         
         // Gesture
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(blastButton.handleSelfOnTapped(_:)));
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(submitButton.handleSelfOnTapped(_:)));
         self.backgroundView.addGestureRecognizer(tapGesture);
         
     }

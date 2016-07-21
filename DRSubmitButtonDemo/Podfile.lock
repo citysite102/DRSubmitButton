@@ -1,0 +1,21 @@
+PODS:
+  - DRSubmitButton (0.0.1)
+
+DEPENDENCIES:
+  - DRSubmitButton (from `git@github.com:citysite102/DRSubmitButton.git`)
+
+EXTERNAL SOURCES:
+  DRSubmitButton:
+    :git: git@github.com:citysite102/DRSubmitButton.git
+
+CHECKOUT OPTIONS:
+  DRSubmitButton:
+    :commit: 64f1c74095b9baa20526bd4c70165a805ec66b07
+    :git: git@github.com:citysite102/DRSubmitButton.git
+
+SPEC CHECKSUMS:
+  DRSubmitButton: 2c1625240b28e23451ec1d507f9712ef3825daa2
+
+PODFILE CHECKSUM: e8639ffc6acfc7c98eb1d2d19fdf1e6815bce775
+
+COCOAPODS: 1.0.1

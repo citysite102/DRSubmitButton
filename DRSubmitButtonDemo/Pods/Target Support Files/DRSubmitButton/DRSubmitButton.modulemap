@@ -1,0 +1,6 @@
+framework module DRSubmitButton {
+  umbrella header "DRSubmitButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

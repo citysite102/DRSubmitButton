@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05A8C89504C86467107A1BDD /* Pods_DRSubmitButtonDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CE78D13030593070834A55 /* Pods_DRSubmitButtonDemo.framework */; };
 		7750A2EF1D40FEBE0012C23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750A2EE1D40FEBE0012C23F /* AppDelegate.swift */; };
 		7750A2F11D40FEBE0012C23F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750A2F01D40FEBE0012C23F /* ViewController.swift */; };
 		7750A2F41D40FEBE0012C23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7750A2F21D40FEBE0012C23F /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05CE78D13030593070834A55 /* Pods_DRSubmitButtonDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRSubmitButtonDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AD4310A82E5BEE47098AF27 /* Pods-DRSubmitButtonDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRSubmitButtonDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRSubmitButtonDemo/Pods-DRSubmitButtonDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7750A2EB1D40FEBE0012C23F /* DRSubmitButtonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRSubmitButtonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7750A2EE1D40FEBE0012C23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7750A2F01D40FEBE0012C23F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		7750A2F51D40FEBE0012C23F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7750A2F81D40FEBE0012C23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7750A2FA1D40FEBE0012C23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8001F23FE80F99B2826E1EE3 /* Pods-DRSubmitButtonDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRSubmitButtonDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRSubmitButtonDemo/Pods-DRSubmitButtonDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A8C89504C86467107A1BDD /* Pods_DRSubmitButtonDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				7750A2ED1D40FEBE0012C23F /* DRSubmitButtonDemo */,
 				7750A2EC1D40FEBE0012C23F /* Products */,
+				CB8011BFF8F8E69B81B1C7EC /* Pods */,
+				CCDDB532077A8C134142C533 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = DRSubmitButtonDemo;
 			sourceTree = "<group>";
 		};
+		CB8011BFF8F8E69B81B1C7EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8001F23FE80F99B2826E1EE3 /* Pods-DRSubmitButtonDemo.debug.xcconfig */,
+				0AD4310A82E5BEE47098AF27 /* Pods-DRSubmitButtonDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CCDDB532077A8C134142C533 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05CE78D13030593070834A55 /* Pods_DRSubmitButtonDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7750A2FD1D40FEBE0012C23F /* Build configuration list for PBXNativeTarget "DRSubmitButtonDemo" */;
 			buildPhases = (
+				CA0FC975D9975BEDAC69768C /* [CP] Check Pods Manifest.lock */,
 				7750A2E71D40FEBE0012C23F /* Sources */,
 				7750A2E81D40FEBE0012C23F /* Frameworks */,
 				7750A2E91D40FEBE0012C23F /* Resources */,
+				D111A980869276A96D4F747C /* [CP] Embed Pods Frameworks */,
+				7E093C0C128A6E9287E4F16E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E093C0C128A6E9287E4F16E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DRSubmitButtonDemo/Pods-DRSubmitButtonDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA0FC975D9975BEDAC69768C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D111A980869276A96D4F747C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DRSubmitButtonDemo/Pods-DRSubmitButtonDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7750A2E71D40FEBE0012C23F /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		7750A2FE1D40FEBE0012C23F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8001F23FE80F99B2826E1EE3 /* Pods-DRSubmitButtonDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRSubmitButtonDemo/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		7750A2FF1D40FEBE0012C23F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AD4310A82E5BEE47098AF27 /* Pods-DRSubmitButtonDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRSubmitButtonDemo/Info.plist;
