@@ -16,6 +16,9 @@ class ViewController: UIViewController {
         let submitButtonDemo =
             submitButton.init(frame: CGRectMake(80, 150, 160, 54));
         submitButtonDemo.addTarget(self, action: #selector(ViewController.demoFunction));
+        submitButtonDemo.submitImage = UIImage(named: "icon_submit");
+        submitButtonDemo.successImage = UIImage(named: "icon_success");
+        submitButtonDemo.warningImage = UIImage(named: "icon_warning");
         self.view.addSubview(submitButtonDemo);
     }
 

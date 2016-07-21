@@ -30,17 +30,17 @@ public class submitButton: UIView {
     // Custom UI Element
     public var submitImage: UIImage! {
         didSet {
-            self.submitImageView.image = submitImage;
+            self.submitImageView.image = submitImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     public var successImage: UIImage! {
         didSet {
-            self.submitImageView.image = submitImage;
+            self.submitImageView.image = successImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     public var warningImage: UIImage! {
         didSet {
-            self.warningImageView.image = submitImage;
+            self.warningImageView.image = warningImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     
@@ -102,11 +102,11 @@ public class submitButton: UIView {
         
         
         // Basic UI Element
-        submitImageView = UIImageView.init(image: UIImage(named: "icon_submit")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        submitImageView = UIImageView.init();
         submitImageView.tintColor = submitIconColor;
-        successImageView = UIImageView.init(image: UIImage(named: "icon_success")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        successImageView = UIImageView.init();
         successImageView.tintColor = successIconColor;
-        warningImageView = UIImageView.init(image: UIImage(named: "icon_warning")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        warningImageView = UIImageView.init();
         warningImageView.tintColor = warningIconColor;
         successImageView.alpha = 0;
         warningImageView.alpha = 0;
