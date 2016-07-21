@@ -17,40 +17,41 @@ import UIKit
 public class submitButton: UIView {
     
     // Color with default value
-    var normalBackgrounColor: UIColor   = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var submitIconColor: UIColor        = UIColor(red: 6/255, green: 164/255, blue: 191/255, alpha: 1.0)
-    var loadingBackgrounColor: UIColor  = UIColor(red: 255/255, green: 248/255, blue: 247/255, alpha: 1.0)
-    var loadingIconColor: UIColor       = UIColor(red: 6/255, green: 164/255, blue: 191/255, alpha: 1.0)
-    var successBackgroundColor: UIColor = UIColor(red: 65/255, green: 195/255, blue: 143/255, alpha: 1.0)
-    var successIconColor: UIColor       = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var warningBackgroundColor: UIColor = UIColor(red: 1.0, green: 131/255, blue: 98/255, alpha: 1.0)
-    var warningIconColor: UIColor       = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    var shadowColor: UIColor            = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.5)
+    public var normalBackgrounColor: UIColor   = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    public var submitIconColor: UIColor        = UIColor(red: 6/255, green: 164/255, blue: 191/255, alpha: 1.0)
+    public var loadingBackgrounColor: UIColor  = UIColor(red: 255/255, green: 248/255, blue: 247/255, alpha: 1.0)
+    public var loadingIconColor: UIColor       = UIColor(red: 6/255, green: 164/255, blue: 191/255, alpha: 1.0)
+    public var successBackgroundColor: UIColor = UIColor(red: 65/255, green: 195/255, blue: 143/255, alpha: 1.0)
+    public var successIconColor: UIColor       = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    public var warningBackgroundColor: UIColor = UIColor(red: 1.0, green: 131/255, blue: 98/255, alpha: 1.0)
+    public var warningIconColor: UIColor       = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    public var shadowColor: UIColor            = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.5)
     
     // Custom UI Element
-    var submitImage: UIImage! {
+    public var submitImage: UIImage! {
         didSet {
             self.submitImageView.image = submitImage;
         }
     }
-    var successImage: UIImage! {
+    public var successImage: UIImage! {
         didSet {
             self.submitImageView.image = submitImage;
         }
     }
-    var warningImage: UIImage! {
+    public var warningImage: UIImage! {
         didSet {
             self.warningImageView.image = submitImage;
         }
     }
     
     // Custom UI Setting
-    var shouldShowShadow: Bool = true {
+    public var shouldShowShadow: Bool = true {
         didSet {
             self.layer.shadowOpacity = shouldShowShadow ? 1.0 : 0.0;
         }
     }
-    var buttonState: SubmitButtonState = .normal {
+    
+    public var buttonState: SubmitButtonState = .normal {
         didSet {
             switch buttonState {
             case .normal:
@@ -71,7 +72,7 @@ public class submitButton: UIView {
     }
 
     // Loading circle radius
-    var kLoadingRadius: CGFloat         = 12
+    public var kLoadingRadius: CGFloat         = 12
     
     // Private UI Element
     private var backgroundView: UIView!

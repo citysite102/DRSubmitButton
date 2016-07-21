@@ -174,7 +174,7 @@ public class submitButton: UIView {
     
     // API
     
-    func addTarget(target: AnyObject?, action: Selector) {
+    public func addTarget(target: AnyObject?, action: Selector) {
         self.target = target;
         self.selector = action;
     }

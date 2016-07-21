@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DRSubmitButton:
-    :commit: 185e5a272ceb2e0f814989c6c4120209a7155653
+    :commit: 25ef58891d32aa19c74ddd00331b374634a3c15b
     :git: git@github.com:citysite102/DRSubmitButton.git
 
 SPEC CHECKSUMS:
