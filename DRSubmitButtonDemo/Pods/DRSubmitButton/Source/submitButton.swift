@@ -30,17 +30,17 @@ public class submitButton: UIView {
     // Custom UI Element
     public var submitImage: UIImage! {
         didSet {
-            self.submitImageView.image = submitImage;
+            self.submitImageView.image = submitImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     public var successImage: UIImage! {
         didSet {
-            self.submitImageView.image = submitImage;
+            self.successImageView.image = successImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     public var warningImage: UIImage! {
         didSet {
-            self.warningImageView.image = submitImage;
+            self.warningImageView.image = warningImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
         }
     }
     
@@ -52,27 +52,49 @@ public class submitButton: UIView {
     }
     
     public var buttonState: SubmitButtonState = .normal {
-        didSet {
-            switch buttonState {
-            case .normal:
-                self.performBackgroundColorAnimation(normalBackgrounColor, completion: nil);
-                self.loadingShapeLayer.removeAllAnimations();
-            case .loading:
-                self.performBackgroundColorAnimation(loadingBackgrounColor, completion: nil);
-                self.loadingShapeLayer.hidden = false;
-                self.performLoadingAnimation();
-            case .success:
-                self.performBackgroundColorAnimation(successBackgroundColor, completion: nil);
-                self.loadingShapeLayer.removeAllAnimations();
-            case .warning:
-                self.performBackgroundColorAnimation(warningBackgroundColor, completion: nil);
-                self.loadingShapeLayer.removeAllAnimations();
+        willSet {
+            switch newValue {
+                case .normal:
+                    self.performSubmitAppearAnimation();
+                    self.performBackgroundColorAnimation(normalBackgrounColor, completion: nil);
+                    self.loadingShapeLayer.removeAllAnimations();
+                case .loading:
+                    self.performBackgroundColorAnimation(loadingBackgrounColor, completion: nil);
+                    self.performLoadingAnimation();
+                case .success:
+                    self.performAppearAnimation(self.successImageView, completion: nil);
+                    self.performBackgroundColorAnimation(successBackgroundColor, completion: nil);
+                    self.loadingShapeLayer.removeAllAnimations();
+                case .warning:
+                    self.performAppearAnimation(self.warningImageView, completion: { (result: Bool) in
+                        if result {
+                            self.performShakeAnimation(self.backgroundView, completion: nil);
+                            self.performShakeAnimation(self.warningImageView, completion: nil);
+                        }
+                    });
+                    self.performBackgroundColorAnimation(warningBackgroundColor, completion: nil);
+                    self.loadingShapeLayer.removeAllAnimations();
             }
+        }
+        didSet {
+            switch oldValue {
+                case .normal:
+                    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                    dispatch_after(delayTime, dispatch_get_main_queue()) {
+                        self.performSubmitHiddenAnimation();
+                    }
+                case .loading:
+                    self.loadingShapeLayer.hidden = true;
+                case .success:
+                    self.performHiddenAnimation(self.successImageView, completion: nil);
+                case .warning:
+                    self.performHiddenAnimation(self.warningImageView, completion: nil);
+                }
         }
     }
 
     // Loading circle radius
-    public var kLoadingRadius: CGFloat         = 12
+    private var kLoadingRadius: CGFloat         = 12
     
     // Private UI Element
     private var backgroundView: UIView!
@@ -102,11 +124,11 @@ public class submitButton: UIView {
         
         
         // Basic UI Element
-        submitImageView = UIImageView.init(image: UIImage(named: "icon_submit")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        submitImageView = UIImageView.init();
         submitImageView.tintColor = submitIconColor;
-        successImageView = UIImageView.init(image: UIImage(named: "icon_success")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        successImageView = UIImageView.init();
         successImageView.tintColor = successIconColor;
-        warningImageView = UIImageView.init(image: UIImage(named: "icon_warning")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate));
+        warningImageView = UIImageView.init();
         warningImageView.tintColor = warningIconColor;
         successImageView.alpha = 0;
         warningImageView.alpha = 0;
@@ -184,45 +206,31 @@ public class submitButton: UIView {
     
     func handleSelfOnTapped(gestureRecognizer: UITapGestureRecognizer) {
         if self.buttonState == .normal {
+            self.buttonState = .loading;
             self.performTapAnimation(gestureRecognizer.locationInView(self));
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
                 self.backgroundView.backgroundColor = self.loadingBackgrounColor;
-                self.performSubmitHiddenAnimation();
-                self.buttonState = .loading;
-                if ((self.target?.respondsToSelector(self.selector!)) != nil) {
-                    self.target?.performSelector(self.selector!, withObject: self);
-                }
             }
-        } else if self.buttonState == .loading {
-            self.performAppearAnimation(self.successImageView, completion: nil);
-            self.loadingShapeLayer.hidden = true;
-            self.buttonState = .success;
-        } else if self.buttonState == .success {
-            self.performHiddenAnimation(self.successImageView, completion: nil);
-            self.performAppearAnimation(self.warningImageView, completion: { (result: Bool) in
-                if result {
-                    self.performShakeAnimation(self.backgroundView, completion: nil);
-                    self.performShakeAnimation(self.warningImageView, completion: nil);
-                }
-            });
-            self.buttonState = .warning;
-        } else {
-            self.performHiddenAnimation(self.warningImageView, completion: nil);
-            self.performSubmitAppearAnimation();
-            self.buttonState = .normal;
+            if ((self.target?.respondsToSelector(self.selector!)) != nil) {
+                self.target?.performSelector(self.selector!, withObject: self);
+            }
         }
     }
     
     // MARK: - Animation
     
     private func performLoadingAnimation() {
-        let spinAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation");
-        spinAnimation.fromValue             = 0;
-        spinAnimation.toValue               = M_PI * 2;
-        spinAnimation.duration              = 0.8;
-        spinAnimation.repeatCount           = Float.infinity;
-        self.loadingShapeLayer.addAnimation(spinAnimation, forKey: nil);
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.loadingShapeLayer.hidden = false;
+            let spinAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation");
+            spinAnimation.fromValue             = 0;
+            spinAnimation.toValue               = M_PI * 2;
+            spinAnimation.duration              = 0.8;
+            spinAnimation.repeatCount           = Float.infinity;
+            self.loadingShapeLayer.addAnimation(spinAnimation, forKey: nil);
+        }
     }
     
     private func performTapAnimation(point: CGPoint) {
